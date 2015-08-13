@@ -1,0 +1,12 @@
+{
+	"name": "rock",
+	"description": "My fabulous new app",
+	"copyright": "Copyright (C) 2000 Me. All rights reserved.",
+	"license": "AGPL-3.0",
+	"homepage": "http://appname.org",
+	"authors": ["Sergiu"],
+	"dependencies": {
+		"vibe-d": "~>0.7.23"
+	},
+	"versions": ["VibeDefaultMain"]
+}
