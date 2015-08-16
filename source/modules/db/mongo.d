@@ -3,22 +3,22 @@
 import vibe.d;
 import config;
 
-class mongo
+class Mongo
 {
 	public MongoClient client;
-	private config conf;
+	private Config conf;
 
-	this(config configuration)
+	this(Config configuration)
 	{
 		conf = configuration;
 	}
 
 	public void connect(){
-		client = connectMongoDB(conf.data["mongoServer"]);
+		client = connectMongoDB(conf.get("mongoServer"));
 	}
 
 	public string db(){
-		return conf.data["mongoDB"];
+		return conf["mongoDB"];
 	}
 }
 

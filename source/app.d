@@ -1,13 +1,4 @@
-/*
- * import std.stdio;
-
-void main()
-{
-	writeln("Edit source/app.d to start your project.");
-}
-*/
-
-
+module app;
 
 import vibe.d;
 import mongotest;
@@ -19,32 +10,29 @@ import config;
 
 shared static this()
 {
-	auto conf = new config;
+	auto conf = Config.getInstance();
+
 
 	auto settings = new HTTPServerSettings;
-	settings.bindAddresses = ["::1", conf.data["selfIp"]];
-	settings.port = to!ushort(conf.data["port"]);
+	settings.bindAddresses = ["::1", conf.get("selfIp")];
+	settings.port =  conf.get("port").to!ushort;
 
 	auto router = new URLRouter;
 
-
 	// DB
-	auto db = new mongo(conf);
+	auto db = new Mongo(conf);
 	db.connect();
 
 
 	// USER
-	auto userD = new userDao(db);
-	auto reg = new registration(userD);
-	auto userCtrl = new userController(router, conf, reg);
-	userCtrl.register();
-
-
-
+	auto userD = new UserDAO(db);
+	auto reg = new Registration(userD);
+	auto userCtrl = new UserController(router, conf, reg);
+	userCtrl.registerRoutes();
 
 	router.get("/mongo", &mongoT);
 
-	userCtrl.registerGeneric();
+	
 	
 	listenHTTP(settings, router);
 }

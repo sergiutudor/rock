@@ -3,22 +3,18 @@
 import vibe.d;
 import config;
 
-abstract class abstractController
+abstract class AbstractController
 {
-	protected config conf;
+	protected Config conf;
 	protected URLRouter router;
 
-	this(URLRouter Prouter, config configuration)
+	this(URLRouter Prouter, Config configuration)
 	{
 		conf = configuration;
 		router = Prouter;
 	}
 
-	public void registerGeneric(){
-		router.any("*", &emptyRespose);
-	}
-
-	public abstract void register();
+	public abstract void registerRoutes();
 	
 	void emptyRespose(HTTPServerRequest req,
 		HTTPServerResponse res){
@@ -31,5 +27,6 @@ abstract class abstractController
 		res.headers["Access-Control-Allow-Origin"] = conf.get("allowCrossDomain");
 		res.headers["Access-Control-Allow-Headers"] = "content-type";
 	}
+    
 }
 

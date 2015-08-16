@@ -3,13 +3,13 @@
 import modules.db;
 import vibe.d;
 
-class userDao
+class UserDAO
 {
-	private mongo db;
+	private Mongo db;
 	private MongoCollection collection;
-	protected string collectionName = "users";
+	enum collectionName = "users";
 
-	this(mongo client)
+	this(Mongo client)
 	{
 		db = client;
 		collection = db.client.getCollection(db.db~"."~collectionName);

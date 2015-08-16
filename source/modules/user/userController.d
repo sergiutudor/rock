@@ -9,20 +9,22 @@ import modules.user.registration;
 
 import std.encoding;
 
-class userController : abstractController
+class UserController : AbstractController
 {
-	registration registrationService;
+	Registration registrationService;
 
-	this(URLRouter router, config configuration, registration reg)
+	this(URLRouter router, Config configuration, Registration reg)
 	{
 		super(router, configuration);
 
 		registrationService = reg;
 	}
 
-	public override void register(){
+	public override void registerRoutes(){
+        
 		router.get("/user/*", &getUser);
 		router.post("/user/", &registerUser);
+        router.any("*", &emptyRespose);
 	}
 
 	void getUser(HTTPServerRequest req,
@@ -45,7 +47,7 @@ class userController : abstractController
 
 		}
 		catch (Exception e){
-			writeln(e.msg);
+			logInfo(e.msg);
 		}
 	}
 }

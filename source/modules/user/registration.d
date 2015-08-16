@@ -3,11 +3,11 @@
 import modules.user.userDao;
 import vibe.d;
 
-class registration
+class Registration
 {
-	private userDao dao;
+	private UserDAO dao;
 
-	this(userDao Dao)
+	this(UserDAO Dao)
 	{
 		dao = Dao;
 	}

@@ -4,6 +4,7 @@
 	"copyright": "Copyright (C) 2000 Me. All rights reserved.",
 	"license": "AGPL-3.0",
 	"homepage": "http://appname.org",
+	"targetName": "rocker",
 	"authors": ["Sergiu"],
 	"dependencies": {
 		"vibe-d": "~>0.7.23"

@@ -1,34 +1,17 @@
-﻿<Properties GitUserInfo="UsingGIT">
+﻿<Properties GitUserInfo="UsingGIT" StartupItem="dub.json">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Default" PreferredExecutionTarget="debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="source/mongotest.d">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dub.json">
     <Files>
-      <File FileName="source/app.d" Line="45" Column="30" />
-      <File FileName="source/mongotest.d" Line="12" Column="45" />
-      <File FileName="source/config.d" Line="10" Column="11" />
-      <File FileName="source/modules/user/userController.d" Line="3" Column="19" />
-      <File FileName="source/modules/user/registration.d" Line="20" Column="1" />
-      <File FileName="source/modules/db/mongo.d" Line="2" Column="1" />
-      <File FileName="source/modules/user/userDao.d" Line="18" Column="23" />
-      <File FileName="source/modules/abstractController.d" Line="11" Column="46" />
+      <File FileName="source\app.d" Line="22" Column="24" />
+      <File FileName="source\mongotest.d" Line="12" Column="45" />
+      <File FileName="source\config.d" Line="16" Column="39" />
+      <File FileName="source\modules\user\userController.d" Line="1" Column="1" />
+      <File FileName="source\modules\user\registration.d" Line="1" Column="1" />
+      <File FileName="source\modules\db\mongo.d" Line="1" Column="1" />
+      <File FileName="source\modules\user\userDao.d" Line="1" Column="1" />
+      <File FileName="source\modules\abstractController.d" Line="1" Column="1" />
+      <File FileName="dub.json" Line="7" Column="25" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="rock" expanded="True">
-            <Node name="source" expanded="True">
-              <Node name="modules" expanded="True">
-                <Node name="db" expanded="True" />
-                <Node name="user" expanded="True" />
-              </Node>
-              <Node name="mongotest.d" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
