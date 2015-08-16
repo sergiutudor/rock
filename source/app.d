@@ -11,26 +11,40 @@ void main()
 
 import vibe.d;
 import mongotest;
-import userController;
+import modules.user.userController;
+import modules.user.userDao;
+import modules.user.registration;
+import modules.db;
+import config;
 
 shared static this()
 {
+	auto conf = new config;
+
 	auto settings = new HTTPServerSettings;
-	settings.bindAddresses = ["::1", "127.0.0.1"];
-	settings.port = 8080;
+	settings.bindAddresses = ["::1", conf.data["selfIp"]];
+	settings.port = to!ushort(conf.data["port"]);
 
 	auto router = new URLRouter;
-	router.get("/", &index);
 
 
-	new userController(router);
-	router.get("/mongo", &mongo);
+	// DB
+	auto db = new mongo(conf);
+	db.connect();
+
+
+	// USER
+	auto userD = new userDao(db);
+	auto reg = new registration(userD);
+	auto userCtrl = new userController(router, conf, reg);
+	userCtrl.register();
+
+
+
+
+	router.get("/mongo", &mongoT);
+
+	userCtrl.registerGeneric();
 	
 	listenHTTP(settings, router);
-}
-
-void index(HTTPServerRequest req,
-	HTTPServerResponse res)
-{
-		res.writeBody("Hello, World! index", "text/plain");
 }
