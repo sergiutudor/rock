@@ -38,15 +38,10 @@ class userController : abstractController
 		HTTPServerResponse res){
 
 		try{
-		prepareResponse(res);
-
-			writeln(req.json.toString);
-
-
 			registrationService.register(req.json);
 
-		//res.writeBody(str, "application/json");
-		res.writeBody("{\"tads\":\"haha\"}", "application/json");
+			prepareResponse(res);
+			res.writeBody(req.json.toString, "application/json");
 
 		}
 		catch (Exception e){
