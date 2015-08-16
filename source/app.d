@@ -31,8 +31,6 @@ shared static this()
 	userCtrl.registerRoutes();
 
 	router.get("/mongo", &mongoT);
-
-	
 	
 	listenHTTP(settings, router);
 }
